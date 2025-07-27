@@ -12,7 +12,10 @@ class TestcontainersConfiguration {
 	@Bean
 	@ServiceConnection
 	ElasticsearchContainer elasticsearchContainer() {
-		return new ElasticsearchContainer(DockerImageName.parse("docker.elastic.co/elasticsearch/elasticsearch:7.17.10"));
+		//return new ElasticsearchContainer(DockerImageName.parse("docker.elastic.co/elasticsearch/elasticsearch:7.17.10"));
+		return new ElasticsearchContainer(DockerImageName.parse("docker.elastic.co/elasticsearch/elasticsearch:8.18.0"))
+				.withEnv("xpack.security.enabled","false")
+				.withEnv("xpack.security.http.ssl.enabled","false");
 	}
 
 }

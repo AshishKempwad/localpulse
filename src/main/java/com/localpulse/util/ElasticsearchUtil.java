@@ -38,6 +38,7 @@ public class ElasticsearchUtil {
                 .caseInsensitive(true));
 
         return Query.of(builder->builder.term(termQuery));
+
     }
 
     public static Query buildRangeQuery(String field, UnaryOperator<NumberRangeQuery.Builder>function){
